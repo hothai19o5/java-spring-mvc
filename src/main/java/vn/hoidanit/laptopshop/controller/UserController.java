@@ -24,6 +24,8 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
+        System.out.println(this.userService.getAllUser());
+        System.out.println(this.userService.getAllUserByEmail("Thai.HX225393@sis.hust.edu.vn"));
         model.addAttribute("eric", "test");
         model.addAttribute("hoidanit", "Hello from hoidanit");
         return "hello";
