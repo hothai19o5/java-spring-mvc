@@ -30,4 +30,12 @@ public class UserService {
     public List<User> getAllUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
+
+    public User getUserById(long id) {
+        return this.userRepository.findOneById(id);
+    }
+
+    // public User handleUpdateUser(User user) {
+    // return this.userRepository.update(user);
+    // }
 }
