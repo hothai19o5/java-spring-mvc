@@ -13,6 +13,7 @@ import vn.hoidanit.laptopshop.service.UserService;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,11 +59,11 @@ public class UserController {
     public String postUpdateUser(Model model, @ModelAttribute("user") User dataForm) {
         User currentUser = this.userService.getUserById(dataForm.getId());
         if (currentUser != null) {
-            currentUser.setEmail(dataForm.getAddress());
+            // currentUser.setEmail(dataForm.getAddress());
             currentUser.setFullName(dataForm.getFullName());
             currentUser.setAddress(dataForm.getAddress());
             currentUser.setPhone(dataForm.getPhone());
-            this.userService.handleSaveUser(dataForm);
+            this.userService.handleSaveUser(currentUser);
         }
         return "redirect:/admin/user";
     }
@@ -77,6 +78,20 @@ public class UserController {
     public String createUserPage(Model model, @ModelAttribute("newUser") User dataForm) {
         this.userService.handleSaveUser(dataForm);
         return "redirect:/admin/user";
+    }
+
+    @PostMapping("/admin/user/delete")
+    public String postDeleteUser(Model model, @ModelAttribute("id") long id) {
+        this.userService.handleDeleteUser(id);
+        return "redirect:/admin/user";
+    }
+
+    @GetMapping("/admin/user/delete/{id}")
+    public String getDeleteUserPage(Model model, @PathVariable long id) {
+        model.addAttribute("id", id);
+        User user = this.userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "admin/user/delete";
     }
 
 }

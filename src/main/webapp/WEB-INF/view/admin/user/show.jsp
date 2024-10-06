@@ -20,29 +20,42 @@
                         <a href="http://localhost:8080/admin/user" class="btn btn-primary">Back</a>
                     </div>
                     <hr />
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">FullName</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Password</th>
+                    <div class="card">
+                        <div class="card-header">
+                            Details User
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">ID:</th>
+                                        <td>${user.id}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email:</th>
+                                        <td>${user.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">FullName:</th>
+                                        <td>${user.fullName}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Address:</th>
+                                        <td>${user.address}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Phone:</th>
+                                        <td>${user.phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Password:</th>
+                                        <td>${user.password}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>${user.id}</th>
-                                <td>${user.email}</td>
-                                <td>${user.fullName}</td>
-                                <td>${user.address}</td>
-                                <td>${user.phone}</td>
-                                <td>${user.password}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </body>
 

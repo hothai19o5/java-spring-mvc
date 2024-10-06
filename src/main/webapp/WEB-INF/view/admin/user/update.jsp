@@ -45,7 +45,7 @@
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-warning">Update</button>
                                     <a href="http://localhost:8080/admin/user" class="btn btn-primary">Back</a>
                                 </div>
                             </form:form>
