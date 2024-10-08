@@ -6,57 +6,71 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Show User</title>
+                <title>Table Users</title>
                 <!-- Latest compiled and minified CSS -->
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <!-- Latest compiled JavaScript -->
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
             </head>
 
-            <body>
-                <div class="container mt-5">
-                    <div class="d-flex justify-content-between">
-                        <h3>Detail User</h3>
-                        <a href="http://localhost:8080/admin/user" class="btn btn-primary">Back</a>
+            <body class="sb-nav-fixed">
+                <jsp:include page="../layout/header.jsp" />
+                <div id="layoutSidenav">
+                    <jsp:include page="../layout/sidebar.jsp" />
+                    <div id="layoutSidenav_content">
+                        <main>
+                            <div class="container-fluid px-4">
+                                <h1 class="mt-4">Manage User</h1>
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active">Dashboard/User</li>
+                                </ol>
+                                <div class="mt-5">
+                                    <div class="row">
+                                        <div class="col-12 mx-auto">
+                                            <div class="d-flex justify-content-between">
+                                                <h3>Table Users</h3>
+                                                <a href="http://localhost:8080/admin/user/create"
+                                                    class="btn btn-primary">Create User</a>
+                                            </div>
+                                            <hr />
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Email</th>
+                                                        <th scope="col">FullName</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach var="user" items="${users}">
+                                                        <tr>
+                                                            <th>${user.id}</th>
+                                                            <td>${user.email}</td>
+                                                            <td>${user.fullName}</td>
+                                                            <td>
+                                                                <a href="/admin/user/${user.id}"
+                                                                    class="btn btn-success mx-2">View</a>
+                                                                <a href="/admin/user/update/${user.id}"
+                                                                    class="btn btn-warning mx-1">Update</a>
+                                                                <a href="/admin/user/delete/${user.id}"
+                                                                    class="btn btn-danger mx-2">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        <jsp:include page="../layout/footer.jsp" />
                     </div>
-                    <hr />
-                    <div class="card">
-                        <div class="card-header">
-                            Details User
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">ID:</th>
-                                        <td>${user.id}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Email:</th>
-                                        <td>${user.email}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">FullName:</th>
-                                        <td>${user.fullName}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Address:</th>
-                                        <td>${user.address}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Phone:</th>
-                                        <td>${user.phone}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Password:</th>
-                                        <td>${user.password}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
                 </div>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                    crossorigin="anonymous"></script>
+                <script src="/js/scripts.js"></script>
             </body>
 
             </html>
