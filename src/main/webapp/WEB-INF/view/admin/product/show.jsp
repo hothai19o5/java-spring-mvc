@@ -22,7 +22,10 @@
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Manage Product</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard/Product</li>
+                        <li class="breadcrumb-item active"><a style="text-decoration: none;"
+                                href="/admin">Dashboard</a>/ <a style="text-decoration: none;"
+                                href="/admin/product">Product</a>
+                        </li>
                     </ol>
                     <div>Product</div>
                 </div>
