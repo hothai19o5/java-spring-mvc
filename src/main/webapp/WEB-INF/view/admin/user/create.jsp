@@ -40,7 +40,7 @@
                                             <h3>Create a user</h3>
                                             <hr />
                                             <form:form action="/admin/user/create" method="post"
-                                                modelAttribute="newUser" class="row g-3">
+                                                modelAttribute="newUser" class="row g-3" enctype="multipart/form-data">
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Email address:</label>
                                                     <form:input type="email" class="form-control" path="email" />
@@ -63,15 +63,16 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Role:</label>
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>ADMIN</option>
-                                                        <option value="2">USER</option>
-                                                    </select>
+                                                    <!-- Thêm tag form để JavaSpring quản lý -->
+                                                    <form:select class="form-select" path="role.name">
+                                                        <form:option value="ADMIN">ADMIN</form:option>
+                                                        <form:option value="USER">USER</form:option>
+                                                    </form:select>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="avatarFile" class="form-label">Avatar:</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".jpg, .png, .jpeg">
+                                                        accept=".jpg, .png, .jpeg" name="nameAvatarFile" />
                                                 </div>
                                                 <div class="col-12 mb-3 d-flex justify-content-around">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"
