@@ -221,7 +221,7 @@
 
 .page-header {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/01-java-spring-laptopshop-starter/src/main/webapp/resources/images/product/cart-page-header-img.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../product/cart-page-header-img.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
