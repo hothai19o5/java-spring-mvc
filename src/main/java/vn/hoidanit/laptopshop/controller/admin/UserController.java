@@ -30,13 +30,6 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        model.addAttribute("eric", "test");
-        model.addAttribute("hoidanit", "Hello from hoidanit");
-        return "hello";
-    }
-
     @RequestMapping("/admin/user")
     public String getTableUserPage(Model model) {
         List<User> users = this.userService.getAllUser();
