@@ -43,7 +43,8 @@
                                                 modelAttribute="newUser" class="row g-3" enctype="multipart/form-data">
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Email address:</label>
-                                                    <form:input type="email" class="form-control" path="email" />
+                                                    <form:input type="email" class="form-control" path="email"
+                                                        aria-required="true" />
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Password:</label>
