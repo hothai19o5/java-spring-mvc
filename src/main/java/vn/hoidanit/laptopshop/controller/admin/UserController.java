@@ -55,8 +55,17 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/update")
-    public String postUpdateUser(Model model, @ModelAttribute("user") User dataForm,
-            @RequestParam("nameAvatarFile") MultipartFile file) {
+    public String postUpdateUser(Model model, @ModelAttribute("user") @Valid User dataForm,
+            BindingResult userBindingResult, @RequestParam("nameAvatarFile") MultipartFile file) {
+        List<FieldError> errors = userBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(">>>>>>>>>" + error.getField() + " - " + error.getDefaultMessage());
+        }
+
+        if (userBindingResult.hasErrors()) {
+            return "/admin/user/update";
+        }
+
         User currentUser = this.userService.getUserById(dataForm.getId());
         if (currentUser != null) {
             currentUser.setFullName(dataForm.getFullName());
@@ -77,12 +86,10 @@ public class UserController {
 
     @PostMapping("/admin/user/create")
     public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User dataForm,
-            BindingResult bindingResult,
-            @RequestParam("nameAvatarFile") MultipartFile file) {
+            BindingResult newUserBindingResult, @RequestParam("nameAvatarFile") MultipartFile file) {
 
-        List<FieldError> errors = bindingResult.getFieldErrors();
-        for (FieldError error : errors) {
-            System.out.println(">>>>>>>>>" + error.getObjectName() + " - " + error.getDefaultMessage());
+        if (newUserBindingResult.hasErrors()) {
+            return "/admin/user/create";
         }
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");

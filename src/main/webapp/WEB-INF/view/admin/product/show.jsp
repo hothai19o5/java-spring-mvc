@@ -34,7 +34,7 @@
                                         <div class="col-12 mx-auto">
                                             <div class="d-flex justify-content-between">
                                                 <h3>Table Product</h3>
-                                                <a href="http://localhost:8080/admin/user/create"
+                                                <a href="http://localhost:8080/admin/product/create"
                                                     class="btn btn-primary">Create Product</a>
                                             </div>
                                             <hr />

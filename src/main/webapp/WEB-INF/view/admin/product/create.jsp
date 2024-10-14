@@ -16,8 +16,8 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
                 <script>
                     $(document).ready(() => {
-                        const avatarFile = $("#productImg");
-                        avatarFile.change(function (e) {
+                        const productImg = $("#productImg");
+                        productImg.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#productPreview").attr("src", imgURL);
                             $("#productPreview").css({ "display": "block" });
@@ -43,24 +43,54 @@
                                                 modelAttribute="newProduct" class="row g-3"
                                                 enctype="multipart/form-data">
                                                 <div class="col-md-6 mb-3">
+                                                    <c:set var="errorNameProduct">
+                                                        <form:errors path="name" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Name:</label>
-                                                    <form:input type="text" class="form-control" path="name" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorNameProduct ? 'is-invalid' : ''}"
+                                                        path="name" />
+                                                    ${errorNameProduct}
                                                 </div>
                                                 <div class="col-md-6 mb-3">
+                                                    <c:set var="errorPrice">
+                                                        <form:errors path="price" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Price:</label>
-                                                    <form:input type="text" class="form-control" path="price" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorPrice ? 'is-invalid' : ''}"
+                                                        path="price" />
+                                                    ${errorPrice}
                                                 </div>
                                                 <div class="col-12 mb-3">
+                                                    <c:set var="errorDetailDesc">
+                                                        <form:errors path="detailDesc" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Detail Description:</label>
-                                                    <form:input type="text" class="form-control" path="detailDesc" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorDetailDesc ? 'is-invalid' : ''}"
+                                                        path="detailDesc" />
+                                                    ${errorDetailDesc}
                                                 </div>
                                                 <div class="col-md-6 mb-3">
+                                                    <c:set var="errorShortDesc">
+                                                        <form:errors path="shortDesc" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Short Description:</label>
-                                                    <form:input type="text" class="form-control" path="shortDesc" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorShortDesc ? 'is-invalid' : ''}"
+                                                        path="shortDesc" />
+                                                    ${errorShortDesc}
                                                 </div>
                                                 <div class="col-md-6 mb-3">
+                                                    <c:set var="errorQuantity">
+                                                        <form:errors path="quantity" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Quantity:</label>
-                                                    <form:input type="text" class="form-control" path="quantity" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorQuantity ? 'is-invalid' : ''}"
+                                                        path="quantity" />
+                                                    ${errorQuantity}
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label class="form-label">Factory:</label>
@@ -88,7 +118,7 @@
                                                 <div class="col-md-6 mb-3">
                                                     <label for="productImg" class="form-label">Image:</label>
                                                     <input class="form-control" type="file" id="productImg"
-                                                        accept=".jpg, .png, .jpeg" name="productImg" />
+                                                        accept=".jpg, .png, .jpeg" name="nameProductImg" />
                                                 </div>
                                                 <div class="col-12 mb-3 d-flex justify-content-around">
                                                     <img style="max-height: 250px; display: none;" alt="product preview"

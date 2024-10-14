@@ -8,32 +8,56 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
+
+    @NotNull
+    @NotEmpty(message = "Name cannot empty")
     private String name;
+
+    @NotNull
     private double price;
+
+    @NotNull
     private long quantity;
+
     private String image;
+
+    @NotNull
+    @NotEmpty(message = "Detail Desc cannot empty")
     private String detailDesc;
+
+    @NotNull
+    @NotEmpty(message = "Short Desc cannot empty")
     private String shortDesc;
+
+    @NotNull
     private long sold;
+
+    @NotNull
+    @NotEmpty(message = "Factory cannot empty")
     private String factory;
+
+    @NotNull
+    @NotEmpty(message = "Target cannot empty")
     private String target;
 
     @OneToMany(mappedBy = "product")
     private Set<OrderDetail> orderDetails;
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -110,7 +134,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product [Id=" + Id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", image="
+        return "Product [Id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", image="
                 + image + ", detailDesc=" + detailDesc + ", shortDesc=" + shortDesc + ", sold=" + sold + ", factory="
                 + factory + ", target=" + target + "]";
     }

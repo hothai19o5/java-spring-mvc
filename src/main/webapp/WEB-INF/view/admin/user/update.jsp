@@ -60,12 +60,24 @@
                                                     <form:input type="password" class="form-control" path="password" />
                                                 </div>
                                                 <div class="mb-3">
+                                                    <c:set var="errorPhoneNumber">
+                                                        <form:errors path="phone" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Phone Number:</label>
-                                                    <form:input type="text" class="form-control" path="phone" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorPhoneNumber ? 'is-invalid' : ''}"
+                                                        path="phone" />
+                                                    ${errorPhoneNumber}
                                                 </div>
                                                 <div class="mb-3">
+                                                    <c:set var="errorFullName">
+                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label class="form-label">Full Name:</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorFullName ? 'is-invalid' : ''}"
+                                                        path="fullName" />
+                                                    ${errorFullName}
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Address:</label>
