@@ -57,10 +57,6 @@ public class UserController {
     @PostMapping("/admin/user/update")
     public String postUpdateUser(Model model, @ModelAttribute("user") @Valid User dataForm,
             BindingResult userBindingResult, @RequestParam("nameAvatarFile") MultipartFile file) {
-        List<FieldError> errors = userBindingResult.getFieldErrors();
-        for (FieldError error : errors) {
-            System.out.println(">>>>>>>>>" + error.getField() + " - " + error.getDefaultMessage());
-        }
 
         if (userBindingResult.hasErrors()) {
             return "/admin/user/update";
