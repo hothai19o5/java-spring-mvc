@@ -81,7 +81,10 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Image:</th>
-                                                        <td>${product.image}</td>
+                                                        <td><img class="card-img-top"
+                                                                style="max-height: 500px; max-width: 1000px; object-fit: contain;"
+                                                                src="/product/${product.image}" alt="image product">
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

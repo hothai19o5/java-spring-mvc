@@ -17,6 +17,12 @@
                 <script>
                     $(document).ready(() => {
                         const productImg = $("#productImg");
+                        const orgImg = "${product.image}"
+                        if (orgImg) {
+                            const urlImg = "/product/" + orgImg;
+                            $("#productPreview").attr("src", urlImg);
+                            $("#productPreview").css({ "display": "block" });
+                        }
                         productImg.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#productPreview").attr("src", imgURL);

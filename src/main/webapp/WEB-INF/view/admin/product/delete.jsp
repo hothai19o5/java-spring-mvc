@@ -32,7 +32,8 @@
                                 <div class="mt-5">
                                     <div class="row">
                                         <div class="col-md-6 col-12 mx-auto">
-                                            <form:form action="/admin/user/delete" method="post" modelAttribute="user">
+                                            <form:form action="/admin/product/delete" method="post"
+                                                modelAttribute="product">
                                                 <h3>Delete Product With ID = ${id}</h3>
                                                 <hr />
                                                 <div class="alert alert-danger" role="alert">
