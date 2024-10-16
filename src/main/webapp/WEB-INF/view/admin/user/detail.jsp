@@ -6,7 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Show User</title>
+                <title>Show User ${id}</title>
                 <!-- Latest compiled and minified CSS -->
                 <link href="/css/styles.css" rel="stylesheet" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,13 +31,13 @@
                                 </ol>
                                 <div class="mt-5">
                                     <div class="d-flex justify-content-between">
-                                        <h3>Detail User</h3>
+                                        <h3>Detail User ${id}</h3>
                                         <a href="http://localhost:8080/admin/user" class="btn btn-primary">Back</a>
                                     </div>
                                     <hr />
                                     <div class="card">
                                         <div class="card-header">
-                                            Details User
+                                            Details User ${id}
                                         </div>
                                         <div class="card-body">
                                             <table class="table">
@@ -66,11 +66,23 @@
                                                         <th scope="row">Password:</th>
                                                         <td>${user.password}</td>
                                                     </tr>
+                                                    <tr>
+                                                        <th scope="row">Avatar:</th>
+                                                        <td>
+                                                            ${user.avatar}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">Avatar:</th>
+                                                        <td>
+                                                            <img style="max-height: 500px; max-width: 1000px; object-fit: contain;"
+                                                                src="/avatar/${user.avatar}" alt="avatar" />
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </main>
@@ -79,8 +91,7 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
-                <script src="js/scripts.js"></script>
-                <script src="js/datatables-simple-demo.js"></script>
+                <script src="/js/scripts.js"></script>
             </body>
 
             </html>

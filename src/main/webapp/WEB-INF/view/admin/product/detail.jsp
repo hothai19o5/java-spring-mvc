@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             <html lang="en">
 
             <head>
@@ -53,7 +53,9 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Price:</th>
-                                                        <td>${product.price}</td>
+                                                        <td>
+                                                            <fmt:formatNumber type="number" value="${product.price}" />
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">ShortDesc:</th>
@@ -81,8 +83,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">Image:</th>
-                                                        <td><img class="card-img-top"
-                                                                style="max-height: 500px; max-width: 1000px; object-fit: contain;"
+                                                        <td><img style="max-height: 500px; max-width: 1000px; object-fit: contain;"
                                                                 src="/product/${product.image}" alt="image product">
                                                         </td>
                                                     </tr>

@@ -42,6 +42,7 @@ public class UserController {
 
     @RequestMapping("/admin/user/{id}")
     public String getDetailUserPage(Model model, @PathVariable long id) {
+        model.addAttribute("id", id);
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
         return "admin/user/detail";
@@ -49,6 +50,7 @@ public class UserController {
 
     @RequestMapping("/admin/user/update/{id}")
     public String getUpdateUserPage(Model model, @PathVariable long id) {
+        model.addAttribute("id", id);
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
         return "admin/user/update";

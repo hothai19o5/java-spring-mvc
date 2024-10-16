@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             <html lang="en">
 
             <head>
@@ -73,7 +73,7 @@
                                         <li class="nav-item">
                                             <a class="d-flex m-2 py-2 bg-light rounded-pill active"
                                                 data-bs-toggle="pill" href="#tab-1">
-                                                <span class="text-dark" style="width: 130px;">Tất cả sản phẩm</span>
+                                                <span class="text-dark" style="width: 130px;">Tất cả</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -91,13 +91,19 @@
                                         <li class="nav-item">
                                             <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
                                                 href="#tab-4">
-                                                <span class="text-dark" style="width: 130px;">Đồ họa-Kỹ thuật</span>
+                                                <span class="text-dark" style="width: 130px;">Đồ họa</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
                                                 href="#tab-5">
-                                                <span class="text-dark" style="width: 130px;">Giá rẻ</span>
+                                                <span class="text-dark" style="width: 130px;">Văn phòng</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
+                                                href="#tab-6">
+                                                <span class="text-dark" style="width: 130px;">Doanh Nhân</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -108,192 +114,34 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="row g-4">
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/hp_victus.png"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>HP Victus</h4>
-                                                            <p>[New 100%] HP Victus 15 - AMD Ryzen
-                                                                5-7535HS | Radeon RX 6550M | 15.6 inch Full HD 144Hz</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$14.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
+                                                <c:forEach var="product" items="${products}">
+                                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                                        <div class="rounded position-relative fruite-item">
+                                                            <div class="fruite-img">
+                                                                <img src="/product/${product.image}"
+                                                                    class="img-fluid w-100 rounded-top" alt="">
+                                                            </div>
+                                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                style="top: 10px; left: 10px;">${product.target}</div>
+                                                            <div
+                                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                <h4>${product.name}</h4>
+                                                                <p>${product.shortDesc}</p>
+                                                                <div
+                                                                    class="d-flex justify-content-between flex-lg-wrap">
+                                                                    <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                        <fmt:formatNumber type="number"
+                                                                            value="${product.price}" />
+                                                                    </p>
+                                                                    <a href="#"
+                                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                        Add</a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/loq.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo LOQ</h4>
-                                                            <p>[New 100%] Laptop Lenovo Gaming LOQ - Intel Core
-                                                                i5-12450HX | RAM 12GB | RTX 3050 | 15.6 inch
-                                                            </p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$18.690.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/dell_precision.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Đồ họa</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Dell Precisicon</h4>
-                                                            <p>Laptop Cũ Dell Precision 5560 - Intel Core i9-11950H |
-                                                                RTX A2000 | RAM 12GB | 15.6 Inch 4K</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$26.490.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/lenovo_ideapad_slim_5.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo IdeaPad Slim 5</h4>
-                                                            <p>[New Outlet] Lenovo IdeaPad Slim 5 16IRL8 82XF001TUS -
-                                                                Intel Core i7-1355U | 16GB | 16 inch Full HD+</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">13.990.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/lenovo_v14.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Giá rẻ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo V14 Gen 4</h4>
-                                                            <p>[New 100%] Laptop Lenovo V14 Gen 4 - Intel Core i5-13420H
-                                                                | 16GB | 14 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$12.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/msi_modern14.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>MSI Modern 14</h4>
-                                                            <p>[Mới 100% Full Box] Laptop MSI Modern 14 -
-                                                                Intel Core i5 1235U | 16GB | 14 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$11.490.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/asusGamingVivobook16X.png"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>ASUS Gaming Vivobook</h4>
-                                                            <p>[New 100%] Laptop ASUS Gaming Vivobook 16X - Intel Core
-                                                                i5-12500H | RTX 2050 | 16GB | 16 Inch
-                                                            </p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$16.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/thinkbook_14_g6.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo ThinkBook 14</h4>
-                                                            <p>[New 100%] Laptop Lenovo ThinkBook 14 G6+ - Intel Core
-                                                                Ultra 5-125H | 16GB DDR5 | 14.5 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$20.990.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
@@ -302,77 +150,37 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="row g-4">
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/asusGamingVivobook16X.png"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>ASUS Gaming Vivobook</h4>
-                                                            <p>[New 100%] Laptop ASUS Gaming Vivobook 16X - Intel Core
-                                                                i5-12500H | RTX 2050 | 16GB | 16 Inch
-                                                            </p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$16.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
+                                                <c:forEach var="product" items="${products}">
+                                                    <c:if test="${product.target == 'GAMING'}">
+                                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                                            <div class="rounded position-relative fruite-item">
+                                                                <div class="fruite-img">
+                                                                    <img src="/product/${product.image}"
+                                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                                </div>
+                                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                    style="top: 10px; left: 10px;">${product.target}
+                                                                </div>
+                                                                <div
+                                                                    class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                    <h4>${product.name}</h4>
+                                                                    <p>${product.shortDesc}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-between flex-lg-wrap">
+                                                                        <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" />
+                                                                        </p>
+                                                                        <a href="#"
+                                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/loq.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo LOQ</h4>
-                                                            <p>[New 100%] Laptop Lenovo Gaming LOQ - Intel Core
-                                                                i5-12450HX | RAM 12GB | RTX 3050 | 15.6 inch
-                                                            </p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$18.690.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/hp_victus.png"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Gaming</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>HP Victus</h4>
-                                                            <p>[New 100%] HP Victus 15 - AMD Ryzen
-                                                                5-7535HS | Radeon RX 6550M | 15.6 inch Full HD 144Hz</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$14.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
@@ -381,75 +189,37 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="row g-4">
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/thinkbook_14_g6.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo ThinkBook 14</h4>
-                                                            <p>[New 100%] Laptop Lenovo ThinkBook 14 G6+ - Intel Core
-                                                                Ultra 5-125H | 16GB DDR5 | 14.5 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$20.990.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
+                                                <c:forEach var="product" items="${products}">
+                                                    <c:if test="${product.target == 'MONG-NHE'}">
+                                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                                            <div class="rounded position-relative fruite-item">
+                                                                <div class="fruite-img">
+                                                                    <img src="/product/${product.image}"
+                                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                                </div>
+                                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                    style="top: 10px; left: 10px;">${product.target}
+                                                                </div>
+                                                                <div
+                                                                    class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                    <h4>${product.name}</h4>
+                                                                    <p>${product.shortDesc}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-between flex-lg-wrap">
+                                                                        <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" />
+                                                                        </p>
+                                                                        <a href="#"
+                                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/msi_modern14.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>MSI Modern 14</h4>
-                                                            <p>[Mới 100% Full Box] Laptop MSI Modern 14 -
-                                                                Intel Core i5 1235U | 16GB | 14 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$11.490.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/lenovo_ideapad_slim_5.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Mỏng nhẹ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo IdeaPad Slim 5</h4>
-                                                            <p>[New Outlet] Lenovo IdeaPad Slim 5 16IRL8 82XF001TUS -
-                                                                Intel Core i7-1355U | 16GB | 16 inch Full HD+</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">13.990.000 đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
@@ -458,29 +228,37 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="row g-4">
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/dell_precision.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Đồ họa</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Dell Precisicon</h4>
-                                                            <p>Laptop Cũ Dell Precision 5560 - Intel Core i9-11950H |
-                                                                RTX A2000 | RAM 12GB | 15.6 Inch 4K</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$26.490.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
+                                                <c:forEach var="product" items="${products}">
+                                                    <c:if test="${product.target == 'THIET-KE-DO-HOA'}">
+                                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                                            <div class="rounded position-relative fruite-item">
+                                                                <div class="fruite-img">
+                                                                    <img src="/product/${product.image}"
+                                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                                </div>
+                                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                    style="top: 10px; left: 10px;">${product.target}
+                                                                </div>
+                                                                <div
+                                                                    class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                    <h4>${product.name}</h4>
+                                                                    <p>${product.shortDesc}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-between flex-lg-wrap">
+                                                                        <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" />
+                                                                        </p>
+                                                                        <a href="#"
+                                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
@@ -489,29 +267,76 @@
                                     <div class="row g-4">
                                         <div class="col-lg-12">
                                             <div class="row g-4">
-                                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                                    <div class="rounded position-relative fruite-item">
-                                                        <div class="fruite-img">
-                                                            <img src="/product/lenovo_v14.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
-                                                        </div>
-                                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Giá rẻ</div>
-                                                        <div
-                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Lenovo V14 Gen 4</h4>
-                                                            <p>[New 100%] Laptop Lenovo V14 Gen 4 - Intel Core i5-13420H
-                                                                | 16GB | 14 Inch</p>
-                                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$12.990.000đ</p>
-                                                                <a href="#"
-                                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                        class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                    Add</a>
+                                                <c:forEach var="product" items="${products}">
+                                                    <c:if test="${product.target == 'SINHVIEN-VANPHONG'}">
+                                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                                            <div class="rounded position-relative fruite-item">
+                                                                <div class="fruite-img">
+                                                                    <img src="/product/${product.image}"
+                                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                                </div>
+                                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                    style="top: 10px; left: 10px;">${product.target}
+                                                                </div>
+                                                                <div
+                                                                    class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                    <h4>${product.name}</h4>
+                                                                    <p>${product.shortDesc}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-between flex-lg-wrap">
+                                                                        <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" />
+                                                                        </p>
+                                                                        <a href="#"
+                                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add</a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-6" class="tab-pane fade show p-0">
+                                    <div class="row g-4">
+                                        <div class="col-lg-12">
+                                            <div class="row g-4">
+                                                <c:forEach var="product" items="${products}">
+                                                    <c:if test="${product.target == 'DOANH-NHAN'}">
+                                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                                            <div class="rounded position-relative fruite-item">
+                                                                <div class="fruite-img">
+                                                                    <img src="/product/${product.image}"
+                                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                                </div>
+                                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                                    style="top: 10px; left: 10px;">${product.target}
+                                                                </div>
+                                                                <div
+                                                                    class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                                    <h4>${product.name}</h4>
+                                                                    <p>${product.shortDesc}</p>
+                                                                    <div
+                                                                        class="d-flex justify-content-between flex-lg-wrap">
+                                                                        <p class="text-dark fs-5 fw-bold mb-0">$
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" />
+                                                                        </p>
+                                                                        <a href="#"
+                                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                            Add</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </c:if>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
