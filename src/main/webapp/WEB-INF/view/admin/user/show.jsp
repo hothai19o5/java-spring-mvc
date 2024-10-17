@@ -34,8 +34,7 @@
                                         <div class="col-12 mx-auto">
                                             <div class="d-flex justify-content-between">
                                                 <h3>Table Users</h3>
-                                                <a href="http://localhost:8080/admin/user/create"
-                                                    class="btn btn-primary">Create User</a>
+                                                <a href="/admin/user/create" class="btn btn-primary">Create User</a>
                                             </div>
                                             <hr />
                                             <table class="table table-bordered table-hover">

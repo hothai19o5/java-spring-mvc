@@ -108,8 +108,7 @@
                                                 </div>
                                                 <div class="d-flex justify-content-between">
                                                     <button type="submit" class="btn btn-warning">Update</button>
-                                                    <a href="http://localhost:8080/admin/user"
-                                                        class="btn btn-primary">Back</a>
+                                                    <a href="/admin/user" class="btn btn-primary">Back</a>
                                                 </div>
                                             </form:form>
                                         </div>

@@ -45,8 +45,7 @@
                                                 </div>
                                                 <div class="d-flex justify-content-between">
                                                     <button type="submit" class="btn btn-danger">Confirm</button>
-                                                    <a href="http://localhost:8080/admin/product"
-                                                        class="btn btn-primary">Back</a>
+                                                    <a href="/admin/product" class="btn btn-primary">Back</a>
                                                 </div>
                                             </form:form>
                                         </div>

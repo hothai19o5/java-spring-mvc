@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-        <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             <html lang="en">
 
             <head>
@@ -13,6 +13,7 @@
                 <!-- Latest compiled JavaScript -->
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
             </head>
 
             <body class="sb-nav-fixed">
@@ -32,12 +33,12 @@
                                 <div class="mt-5">
                                     <div class="d-flex justify-content-between">
                                         <h3>Detail User ${id}</h3>
-                                        <a href="http://localhost:8080/admin/user" class="btn btn-primary">Back</a>
+                                        <a href="/admin/user" class="btn btn-primary">Back</a>
                                     </div>
                                     <hr />
                                     <div class="card">
                                         <div class="card-header">
-                                            Details User ${id}
+                                            Details User
                                         </div>
                                         <div class="card-body">
                                             <table class="table">
@@ -47,11 +48,7 @@
                                                         <td>${user.id}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row">Email:</th>
-                                                        <td>${user.email}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">FullName:</th>
+                                                        <th scope="row">Name:</th>
                                                         <td>${user.fullName}</td>
                                                     </tr>
                                                     <tr>
@@ -69,14 +66,8 @@
                                                     <tr>
                                                         <th scope="row">Avatar:</th>
                                                         <td>
-                                                            ${user.avatar}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Avatar:</th>
-                                                        <td>
-                                                            <img style="max-height: 500px; max-width: 1000px; object-fit: contain;"
-                                                                src="/avatar/${user.avatar}" alt="avatar" />
+                                                            <img style="max-height: 500px; max-width: 100%; object-fit: contain;"
+                                                                src="/avatar/${user.avatar}" alt="image avatar">
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -92,6 +83,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
                     crossorigin="anonymous"></script>
                 <script src="/js/scripts.js"></script>
+                <script src="/js/datatables-simple-demo.js"></script>
             </body>
 
             </html>

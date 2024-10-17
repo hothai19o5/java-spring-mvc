@@ -12,7 +12,7 @@ import vn.hoidanit.laptopshop.service.ProductService;
 @Controller
 public class HomePageController {
 
-    private ProductService productService;
+    private final ProductService productService;
 
     public HomePageController(ProductService productService) {
         this.productService = productService;
