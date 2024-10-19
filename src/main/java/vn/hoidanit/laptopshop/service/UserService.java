@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.Role;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.domain.dto.RegisterDTO;
 import vn.hoidanit.laptopshop.repository.RoleRepository;
 import vn.hoidanit.laptopshop.repository.UserRepository;
 
@@ -45,5 +46,13 @@ public class UserService {
 
     public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
+    }
+
+    public User registerDTOtoUser(RegisterDTO registerUser){
+        User user = new User();
+        user.setFullName(registerUser.getFirstName() + " " + registerUser.getLastName());
+        user.setEmail(registerUser.getEmail());
+        user.setPassword(registerUser.getPassword());
+        return user;
     }
 }

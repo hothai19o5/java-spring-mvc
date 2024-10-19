@@ -79,9 +79,9 @@ public class ProductController {
     }
 
     @PostMapping("/admin/product/update")
-    public String postUpdateProduc(Model model, @ModelAttribute("product") @Valid Product dataForm,
-            BindingResult producBindingResult, @RequestParam("nameProductImg") MultipartFile file) {
-        if (producBindingResult.hasErrors()) {
+    public String postUpdateProduct(Model model, @ModelAttribute("product") @Valid Product dataForm,
+            BindingResult productBindingResult, @RequestParam("nameProductImg") MultipartFile file) {
+        if (productBindingResult.hasErrors()) {
             return "/admin/product/update";
         }
         Product currentProduct = this.productService.findProductById(dataForm.getId());
