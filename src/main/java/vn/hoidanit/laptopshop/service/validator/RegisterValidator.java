@@ -22,7 +22,7 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
 
         // Check if password fields match
         if (!user.getPassword().equals(user.getConfirmPassword())) {
-            context.buildConstraintViolationWithTemplate("Passwords must match")
+            context.buildConstraintViolationWithTemplate("Không khớp với password")
                     .addPropertyNode("confirmPassword")
                     .addConstraintViolation()
                     .disableDefaultConstraintViolation();
@@ -32,7 +32,7 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
         // Additional validations can be added here
         // Check mail exists in database
         if(this.userService.existsByEmail(user.getEmail())) {
-            context.buildConstraintViolationWithTemplate("Email already exists")
+            context.buildConstraintViolationWithTemplate("Email đã tồn tại")
                     .addPropertyNode("email")
                     .addConstraintViolation()
                     .disableDefaultConstraintViolation();

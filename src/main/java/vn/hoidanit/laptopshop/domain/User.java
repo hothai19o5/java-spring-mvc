@@ -32,14 +32,11 @@ public class User {
     private String password;
 
     @NotNull
-    @Size(min = 2, message = "Message >= 2")
+    @Size(min = 2, message = "FullName >= 2")
     private String fullName;
 
-    @NotNull
     private String address;
 
-    @NotNull
-    @Size(min = 10, message = "Phone number >= 10")
     private String phone;
 
     private String avatar;
