@@ -77,8 +77,7 @@ public class SecurityConfigurtation {
                 .failureUrl("/login?error")
                 .successHandler(customSuccessHandler())
                 .permitAll())
-            .exceptionHandling(exceptionHandling -> exceptionHandling
-                .accessDeniedPage("/403"));
+            .exceptionHandling(exceptionHandling -> exceptionHandling.accessDeniedPage("/403"));
 
         return http.build();
     }

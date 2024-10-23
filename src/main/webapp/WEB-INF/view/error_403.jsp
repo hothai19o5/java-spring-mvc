@@ -52,7 +52,7 @@
             text-transform: uppercase;
         }
   </style>
-  <title>404 ERROR</title>
+  <title>403 ERROR</title>
 </head>
 <body>
   <use>
