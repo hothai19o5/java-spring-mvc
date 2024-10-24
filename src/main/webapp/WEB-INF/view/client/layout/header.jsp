@@ -60,9 +60,9 @@
                             <ul class="dropdown-menu m-4 dropdown-menu-start p-3 bg-secondary" arialabelledby="dropdownMenuLink" style="right: -50px;">
                                 <li class="d-flex align-items-center flex-column" style="min-width: 200px;">
                                     <img style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden;"
-                                    src="/images/product/1711078092373-asus-01.png" />
+                                    src="/images/avatar/${sessionScope.avatar}" />
                                     <div class="text-center my-3">
-                                        <c:out value="${pageContext.request.userPrincipal.name}" />
+                                        <c:out value="${sessionScope.fullName}" />
                                     </div>
                                 </li>
                                 <li><a class="dropdown-item rounded" href="#">Quản Lý Tài Khoản</a></li>

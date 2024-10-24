@@ -38,10 +38,6 @@
                                                 <input class="form-control" id="inputPassword" type="password" placeholder="Password" name="password"/>
                                                 <label for="inputPassword">Password</label>
                                             </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid">
                                                     <button class="btn btn-primary btn-block">
