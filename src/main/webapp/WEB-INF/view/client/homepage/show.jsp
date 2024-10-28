@@ -130,10 +130,13 @@
                                                             <fmt:formatNumber type="number"
                                                                 value="${pr.price}" />
                                                         </p>
-                                                        <a href="#"
-                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                            Add</a>
+                                                        <form action="/add-product-to-cart/${pr.id}" method="post">
+                                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                                            <button class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                Add
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

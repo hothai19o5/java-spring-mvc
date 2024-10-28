@@ -20,27 +20,27 @@
                             <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active rounded">
-                                        <img src="/images/product/1711079073759-lenovo-01.png"
+                                        <img src="/images/product/1729828751581-9174_9020_900x900_9__3_.jpg"
                                             class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Gaming</a>
                                     </div>
                                     <div class="carousel-item rounded">
-                                        <img src="/images/product/1711080386941-lg-01.png"
+                                        <img src="/images/product/1729829308254-8982_laptop_lg_gram.jpg"
                                             class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Mỏng nhẹ</a>
                                     </div>
                                     <div class="carousel-item rounded">
-                                        <img src="/images/product/1711080787179-apple-02.png"
+                                        <img src="/images/product/1729828946672-8912_m__n_h__nh.jpg"
                                             class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Đồ họa</a>
                                     </div>
                                     <div class="carousel-item rounded">
-                                        <img src="/images/product/1711078452562-dell-01.png"
+                                        <img src="/images/product/1729080999419-lenovoV14G4.jpg"
                                             class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Văn phòng</a>
                                     </div>
                                     <div class="carousel-item rounded">
-                                        <img src="/images/product/1711079954090-apple-01.png"
+                                        <img src="/images/product/1729829776298-8902_dell_xps_13_9340_t7n66aaaa.jpg"
                                             class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                         <a href="#" class="btn px-4 py-2 text-white rounded">Doanh nhân</a>
                                     </div>
