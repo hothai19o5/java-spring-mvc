@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import vn.hoidanit.laptopshop.domain.Cart;
+import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.repository.CartDetailRepository;
 import vn.hoidanit.laptopshop.repository.CartRepository;
 import vn.hoidanit.laptopshop.repository.ProductRepository;
@@ -44,7 +47,32 @@ public class ProductService {
         this.productRepository.delete(product);
     }
 
-    public void handleAddProductToCart(){
+    public void handleAddProductToCart(long productId, String email){
+        User user = this.userService.getUserByEmail(email);
 
+        if(user != null){
+            Cart cart = this.cartRepository.findByUser(user);
+
+            if(cart == null){
+                Cart newCart = new Cart();
+                newCart.setUser(user);
+                newCart.setQuantity(1);
+
+                cart = newCart;
+
+                this.cartRepository.save(newCart);
+            }
+
+            Product product = this.productRepository.findOneById(productId);
+
+            CartDetail cartDetail = new CartDetail();
+
+            cartDetail.setCart(cart);
+            cartDetail.setPrice(product.getPrice());
+            cartDetail.setQuantity(cart.getQuantity());
+            cartDetail.setProduct(product);
+
+            this.cartDetailRepository.save(cartDetail);
+        }
     }
 }
