@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.controller.client;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,16 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import vn.hoidanit.laptopshop.domain.Cart;
+import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
+import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class ItemController {
 
     private final ProductService productService;
+    private final UserService userService;
 
-    public ItemController(ProductService productService) {
+    public ItemController(ProductService productService, UserService userService) {
         this.productService = productService;
+        this.userService = userService;
     }
 
     @PostMapping("/add-product-to-cart/{id}")
@@ -34,7 +42,21 @@ public class ItemController {
     }
 
     @GetMapping("/cart")
-    public String getCartPage(Model model){
+    public String getCartPage(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        String email = (String)session.getAttribute("email");
+
+        User user = this.userService.getUserByEmail(email);
+        Cart cart = user.getCart();
+        List<CartDetail> cartDetails = cart.getCartDetails();
+
+        double totalPrice = 0;
+        for(CartDetail cartDetail : cartDetails){
+            totalPrice += cartDetail.getPrice() * cartDetail.getQuantity();
+        }
+
+        model.addAttribute("cartDetails", cartDetails);
+        model.addAttribute("totalPrice", totalPrice);
 
         return "client/cart/show";
     }
