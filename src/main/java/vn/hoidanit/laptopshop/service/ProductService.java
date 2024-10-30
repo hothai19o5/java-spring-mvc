@@ -78,7 +78,7 @@ public class ProductService {
 
                     cartDetail.setCart(cart);
                     cartDetail.setPrice(product.getPrice());
-                    cartDetail.setQuantity(cart.getQuantity());
+                    cartDetail.setQuantity(1);
                     cartDetail.setProduct(product);
 
                     this.cartDetailRepository.save(cartDetail);

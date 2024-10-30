@@ -1,5 +1,6 @@
 package vn.hoidanit.laptopshop.controller.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.repository.CartDetailRepository;
+import vn.hoidanit.laptopshop.repository.CartRepository;
 import vn.hoidanit.laptopshop.service.ProductService;
 import vn.hoidanit.laptopshop.service.UserService;
 
@@ -23,10 +26,38 @@ public class ItemController {
 
     private final ProductService productService;
     private final UserService userService;
+    private final CartRepository cartRepository;
+    private final CartDetailRepository cartDetailRepository;
 
-    public ItemController(ProductService productService, UserService userService) {
+    public ItemController(ProductService productService, UserService userService, CartRepository cartRepository, CartDetailRepository cartDetailRepository) {
         this.productService = productService;
         this.userService = userService;
+        this.cartRepository = cartRepository;
+        this.cartDetailRepository = cartDetailRepository;
+    }
+
+    @PostMapping("/delete-cart-product/{id}")
+    public String deleteCartProduct(@PathVariable long id, HttpServletRequest request) {
+
+        HttpSession session = request.getSession(false);
+        // Lấy ra id của cartDetail cẫn xóa
+        long cartDetailId = id;
+        // Lấy ra cartDetail cần xóa
+        CartDetail cartDetail = this.cartDetailRepository.findById(cartDetailId).get();
+        // Lấy ra cart của cartDetail
+        Cart cart = cartDetail.getCart();
+        // Xóa cartDetail
+        this.cartDetailRepository.delete(cartDetail);
+
+        if(cart.getQuantity() > 1){
+            cart.setQuantity(cart.getQuantity() - 1);
+            this.cartRepository.save(cart);
+            session.setAttribute("quantity", cart.getQuantity());
+        }else{
+            this.cartRepository.delete(cart);
+            session.setAttribute("quantity", 0);
+        }
+        return "redirect:/cart";
     }
 
     @PostMapping("/add-product-to-cart/{id}")
@@ -48,7 +79,7 @@ public class ItemController {
 
         User user = this.userService.getUserByEmail(email);
         Cart cart = user.getCart();
-        List<CartDetail> cartDetails = cart.getCartDetails();
+        List<CartDetail> cartDetails = cart == null ? new ArrayList<CartDetail>() : cart.getCartDetails();
 
         double totalPrice = 0;
         for(CartDetail cartDetail : cartDetails){
