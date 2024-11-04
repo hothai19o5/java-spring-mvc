@@ -165,6 +165,11 @@
         const input = button.parent().parent().find('input');
         input.val(newVal);
 
+        // set from index
+        const index = input.attr("data-cart-detail-index");
+        const el = document.getElementById(`cartDetails[${index}].quantity`);
+        $(el).val(newVal);
+
         //get price
         const price = input.attr("data-cart-detail-price");
         const id = input.attr("data-cart-detail-id");
@@ -174,6 +179,7 @@
             const newPrice = +price * newVal;
             priceElement.text(formatCurrency(newPrice.toFixed(2)) + " đ");
         }
+
 
         //update total cart price
         const totalPriceElement = $(`p[data-cart-total-price]`);
