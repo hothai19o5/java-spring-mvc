@@ -22,4 +22,8 @@ public class OrderDetailService {
     public void save(OrderDetail orderDetail) {
         this.orderDetailRepository.save(orderDetail);
     }
+
+    public void handleDeleteOrderDetail(OrderDetail orderDetail) {
+        this.orderDetailRepository.delete(orderDetail);
+    }
 }

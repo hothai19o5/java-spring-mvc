@@ -107,6 +107,57 @@ public class ProductService {
         }
     }
 
+    public void handleAddProductToCartFromProductDetail(long productId, String email, HttpSession session, long quantity){
+        User user = this.userService.getUserByEmail(email);
+
+        if(user != null){
+            Cart cart = this.cartRepository.findByUser(user);
+
+            if(cart == null){
+                // Nếu người dùng chưa có giỏ hàng thì tạo ra giỏ hàng
+                Cart newCart = new Cart();
+                newCart.setUser(user);
+                newCart.setQuantity(0);
+
+                cart = newCart;
+                // Lưu vào db
+                this.cartRepository.save(cart);
+            }
+
+            Optional<Product> productOptional = this.productRepository.findById(productId);
+
+            if(productOptional.isPresent()){
+                Product product = productOptional.get();
+                // Tìm ra sản phẩm trong giỏ hàng
+                CartDetail oldDetail = this.cartDetailRepository.findByCartAndProduct(cart, product);
+
+                if(oldDetail == null){
+                    // Nếu trong giỏ hàng chưa có sản phẩm này
+                    CartDetail cartDetail = new CartDetail();
+
+                    cartDetail.setCart(cart);
+                    cartDetail.setPrice(product.getPrice());
+                    cartDetail.setQuantity(quantity);
+                    cartDetail.setProduct(product);
+
+                    this.cartDetailRepository.save(cartDetail);
+                    // Tăng số lượng giỏ hàng lên
+                    long quantityCart = cart.getQuantity() + 1;
+                    cart.setQuantity(quantityCart);
+                    // Lưu số lượng gió hàng vào trong session để có thể cập nhật trực tiếp lên giao diện
+                    session.setAttribute("quantity", quantityCart);
+                    // Lưu vào trong db
+                    this.cartRepository.save(cart);
+                } else {
+                    // Nếu giỏ hàng đã có thì chỉ tăng số lượng sản phẩm
+                    oldDetail.setQuantity(oldDetail.getQuantity()+quantity);
+                    // Lưu vào trong db
+                    this.cartDetailRepository.save(oldDetail);
+                }
+            }
+        }
+    }
+
     public void handleUpdateCartBeforeCheckout(List<CartDetail> cartDetails){
         for(CartDetail cartDetail : cartDetails){
             Optional<CartDetail> cartDetailOptional = this.cartDetailRepository.findById(cartDetail.getId());

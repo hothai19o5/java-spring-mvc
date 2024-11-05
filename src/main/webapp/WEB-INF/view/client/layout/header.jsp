@@ -66,7 +66,7 @@
                                     </div>
                                 </li>
                                 <li><a class="dropdown-item rounded" href="#">Quản Lý Tài Khoản</a></li>
-                                <li><a class="dropdown-item rounded" href="#">Lịch Sử Mua Hàng</a></li>
+                                <li><a class="dropdown-item rounded" href="/order-history">Lịch Sử Mua Hàng</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="post" action="/logout">

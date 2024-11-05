@@ -31,4 +31,8 @@ public class OrderService {
     public void save(Order order) {
         this.orderRepository.save(order);
     }
+
+    public void handleDeleteOrder(Order order) {
+        this.orderRepository.delete(order);
+    }
 }
