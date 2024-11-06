@@ -21,7 +21,6 @@ import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.service.ProductService;
 import vn.hoidanit.laptopshop.service.UploadService;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class ProductController {
@@ -34,10 +33,14 @@ public class ProductController {
     }
 
     @GetMapping("/admin/product")
-    public String getDashboard(Model model, @RequestParam("page") int page) {
+    public String getDashboard(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
         Page<Product> products = this.productService.fetchProducts(PageRequest.of(page - 1, 6));
         List<Product> productList = products.getContent();
         model.addAttribute("products", productList);
+
+        model.addAttribute("totalPages", products.getTotalPages());
+        model.addAttribute("currentPage", page);
+
         return "admin/product/show";
     }
 

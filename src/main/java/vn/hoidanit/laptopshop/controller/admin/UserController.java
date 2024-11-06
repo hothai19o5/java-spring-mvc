@@ -2,6 +2,8 @@ package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
+import vn.hoidanit.laptopshop.domain.Order;
 import vn.hoidanit.laptopshop.domain.User;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +37,12 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user")
-    public String getTableUserPage(Model model) {
-        List<User> users = this.userService.getAllUser();
-        model.addAttribute("users", users);
+    public String getTableUserPage(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
+        Page<User> users = this.userService.fetchUsers(PageRequest.of(page - 1, 6));
+        List<User> listUsers = users.getContent();
+        model.addAttribute("users", listUsers);
+        model.addAttribute("totalPages", users.getTotalPages());
+        model.addAttribute("currentPage", page);
         return "admin/user/show";
     }
 

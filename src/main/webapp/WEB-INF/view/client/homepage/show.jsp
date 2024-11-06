@@ -342,6 +342,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-5 d-flex justify-content-center">
+                    <a class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white" href="/shop">ALL PRODUCT</a>
+                </div>
             </div>
         </div>
     </div>

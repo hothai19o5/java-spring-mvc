@@ -29,18 +29,8 @@
             <div class="collapse navbar-collapse bg-white justify-content-between mx-5" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/" class="nav-item nav-link">Shop</a>
-                    <a href="#" class="nav-item nav-link">Shop Detail</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="/cart" class="dropdown-item">Cart</a>
-                            <a href="#" class="dropdown-item">Chackout</a>
-                            <a href="#" class="dropdown-item">Testimonial</a>
-                            <a href="/404" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
-                    <a href="#" class="nav-item nav-link">Contact</a>
+                    <a href="/shop" class="nav-item nav-link">Shop</a>
+                    <a href="/contact" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="d-flex m-3 me-0">
                     <c:if test="${not empty pageContext.request.userPrincipal}">

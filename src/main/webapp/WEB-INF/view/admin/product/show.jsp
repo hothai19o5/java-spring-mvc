@@ -72,16 +72,16 @@
                                             </table>
                                             <nav aria-label="...">
                                                 <ul class="pagination justify-content-center">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link">Previous</a>
+                                                    <li class="page-item ${currentPage eq 1 ? 'disabled' : ''}">
+                                                        <a class="page-link" href="/admin/product?page=${currentPage - 1}">Previous</a>
                                                     </li>
-                                                    <li class="page-item"><a class="page-link" href="/admin/product?page=1">1</a></li>
-                                                    <li class="page-item active" aria-current="page">
-                                                        <a class="page-link" href="/admin/product?page=2">2</a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="/admin/product?page=3">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#">Next</a>
+                                                    <c:forEach begin="0" end="${totalPages-1}" varStatus="loop">
+                                                        <li class="page-item">
+                                                            <a class="${(loop.index + 1) eq currentPage ? 'active' : ''} page-link" href="/admin/product?page=${loop.index+1}">${loop.index+1}</a>
+                                                        </li>
+                                                    </c:forEach>
+                                                    <li class="page-item ${currentPage eq (totalPages) ? 'disabled' : ''}">
+                                                        <a class="page-link" href="/admin/product?page=${currentPage + 1}">Next</a>
                                                     </li>
                                                 </ul>
                                             </nav>
