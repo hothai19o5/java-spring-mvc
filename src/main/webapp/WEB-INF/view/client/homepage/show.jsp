@@ -113,7 +113,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="/images/product/${pr.image}"
+                                                    <img src="/images/products/${pr.image}"
                                                         class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
@@ -155,7 +155,7 @@
                                             <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <div class="rounded position-relative fruite-item">
                                                     <div class="fruite-img">
-                                                        <img src="/images/product/${pr.image}"
+                                                        <img src="/images/products/${pr.image}"
                                                             class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
@@ -194,7 +194,7 @@
                                             <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <div class="rounded position-relative fruite-item">
                                                     <div class="fruite-img">
-                                                        <img src="/images/product/${pr.image}"
+                                                        <img src="/images/products/${pr.image}"
                                                             class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
@@ -233,7 +233,7 @@
                                             <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <div class="rounded position-relative fruite-item">
                                                     <div class="fruite-img">
-                                                        <img src="/images/product/${pr.image}"
+                                                        <img src="/images/products/${pr.image}"
                                                             class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
@@ -272,7 +272,7 @@
                                             <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <div class="rounded position-relative fruite-item">
                                                     <div class="fruite-img">
-                                                        <img src="/images/product/${pr.image}"
+                                                        <img src="/images/products/${pr.image}"
                                                             class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
@@ -311,7 +311,7 @@
                                             <div class="col-md-6 col-lg-4 col-xl-3">
                                                 <div class="rounded position-relative fruite-item">
                                                     <div class="fruite-img">
-                                                        <img src="/images/product/${pr.image}"
+                                                        <img src="/images/products/${pr.image}"
                                                             class="img-fluid w-100 rounded-top" alt="">
                                                     </div>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"

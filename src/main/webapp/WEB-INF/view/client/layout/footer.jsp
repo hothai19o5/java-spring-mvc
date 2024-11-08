@@ -74,7 +74,7 @@
                     <p>Email: Example@gmail.com</p>
                     <p>Phone: +0123 4567 8910</p>
                     <p>Payment Accepted</p>
-                    <img src="/product/payment.png" class="img-fluid" alt="">
+                    <img src="/products/payment.png" class="img-fluid" alt="">
                 </div>
             </div>
         </div>

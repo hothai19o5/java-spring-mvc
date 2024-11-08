@@ -71,7 +71,7 @@ public class ProductController {
             return "/admin/product/create";
         }
         // Upload image
-        String image = this.uploadService.handleSaveUploadFile(file, "product");
+        String image = this.uploadService.handleSaveUploadFile(file, "products");
         product.setImage(image);
         this.productService.handleSaveProduct(product);
         return "redirect:/admin/product";
@@ -100,7 +100,7 @@ public class ProductController {
             currentProduct.setSold(dataForm.getSold());
             currentProduct.setFactory(dataForm.getFactory());
             currentProduct.setTarget(dataForm.getTarget());
-            currentProduct.setImage(this.uploadService.handleSaveUploadFile(file, "product"));
+            currentProduct.setImage(this.uploadService.handleSaveUploadFile(file, "products"));
             this.productService.handleSaveProduct(currentProduct);
         }
 
