@@ -22,14 +22,15 @@ This project was developed as part of the learning process for Java Spring MVC. 
 
 ## Images
 ### Admin
-![Admin Dashboard](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/Easff73XXtNJjloJmF5_5PkBP7oJXEdLpBGpogRMcU7adQ?e=FXHO0O)
-![Admin User](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/EWD8qvxiUBtEsG2dQfPtUqgBiUtRlPAvFWzRPx9AMMlqXQ?e=iKYeho)
-![Admin Order](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/EZsizZJkAbNBmiqVtHTPfswBsYULtFjtJPpyTfXFLBf1ew?e=hSXDGz)
-![Admin Product](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/EaCdFRqYBSdLh7SBCUmsMhcB37EXYyRsogz44kXj_h_tkw?e=bxE68a)
+![Admin Dashboard](https://github.com/user-attachments/assets/f79ab330-24f7-4b51-9a9a-560ec210d2af)
+![Admin User](https://github.com/user-attachments/assets/b0c9c9e4-834e-4cb2-ae5f-2c6a753be337)
+![Admin Order](https://github.com/user-attachments/assets/135c7a4d-8b72-415a-abb4-55642d4fdbf4)
+![Admin Product](https://github.com/user-attachments/assets/e0603943-8151-4c7e-8d7f-401e986a4563)
 
 ### User
-![User Homepage](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/ERGZeYKvSxtAiOCXhDHqy9oBj4i3l6JTXM1DVxkJnqaF8w?e=NCfPex)
-![User Homepage](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/EVqO-lKe6XpJoSZ16D8EFLUBP1RVDYGm7EGsEDSieHyH2g?e=RKtIKZ)
-![User Shop Detail](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/EckVKAboDmVFpS7rfCmtTyQBssC5wnm9TRG3aiDLaa7GLQ?e=91dJ2B)
-![Shopping Cart](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/ETKTGyFXuXRAi-oIo3OOgJ4BQDtfpzj_QDZgpNKkPzs8mw?e=toRExw)
-![Order History](https://husteduvn-my.sharepoint.com/:i:/g/personal/thai_hx225393_sis_hust_edu_vn/ERw7BlO2vw1ApcW1uFjnbI4BOlKMfmZ0XEZis7ysV90NnQ?e=OT67rt)
+![Login](https://github.com/user-attachments/assets/833d7b7d-19da-4a24-9383-1a066c1fa1c6)
+![User Homepage](https://github.com/user-attachments/assets/dada0e2b-3d48-49a3-8ecd-3e3056d95530)
+![User Homepage](https://github.com/user-attachments/assets/39eb0ff6-46ef-40ef-a70c-50bcee80f642)
+![User Shop Detail](https://github.com/user-attachments/assets/a48d326b-ae5f-499c-ba62-23eb1fc5c109)
+![Shopping Cart](https://github.com/user-attachments/assets/47ced320-8692-4ad8-b37a-ac46fe69e8be)
+![Order History](https://github.com/user-attachments/assets/6e898bbe-7f21-4c0d-8d06-60b4cb6bbafd)
